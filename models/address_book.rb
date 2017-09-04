@@ -21,5 +21,15 @@ class AddressBook
         # #11
         entries.insert(index, Entry.new(name, phone_number, email))
     end
+
+    def remove_entry(name, phone_number, email)
+        i = 0
+        entries.each do |entry|
+            if name == entry.name
+                entries.delete(entries[i])
+            end
+            i += 1
+        end
+    end
 end
 
