@@ -53,7 +53,7 @@ class AddressBook
         # #2
         while lower <= upper
             # #3
-            mid = (lower+upper)/2
+            mid = (lower + upper)/2
             mid_name = entries[mid].name
 
             # #4
@@ -61,11 +61,20 @@ class AddressBook
                 return entries[mid]
             elsif name < mid_name
                 upper = mid-1
-            elsif name < mid_name
-                lower = mid+1
+            elsif name > mid_name
+                lower = mid + 1
             end
         end
-        # #6
+        # #5
+        return nil
+    end
+
+    def iterative_search(name)
+        entries.each do |entry| 
+            if entry.name == name
+                return entry
+            end
+        end
         return nil
     end
 
